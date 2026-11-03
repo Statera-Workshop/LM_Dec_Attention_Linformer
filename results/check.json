@@ -1,0 +1,40 @@
+{
+ "model": "linformer",
+ "repo": "LM_2020_Linformer",
+ "target_repo": "LM_Dec_Attention_Linformer",
+ "category": "Attention",
+ "upstream": "vendored from RichardMinsooGo/LM_2020_Linformer (see LICENSE in vendor folder if present)",
+ "unified": [
+  "fixed length 512 (inputs right-padded), k 128"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 3070 Ti",
+ "stage": "check",
+ "started": "2026-11-02 11:19:07",
+ "smoke": false,
+ "params": 20216064,
+ "causality": {
+  "causal": false,
+  "uses_input": true,
+  "worst_leak": 0.015472412109375,
+  "min_effect": 2.4247632026672363,
+  "logit_scale": 4.117749737335205,
+  "length": 256,
+  "positions": [
+   17,
+   63,
+   100,
+   130,
+   200
+  ]
+ },
+ "data_checks": [
+  "enwik8 train bytes  90,000,000 expected  90,000,000 OK",
+  "enwik8 valid bytes   5,000,000 expected   5,000,000 OK",
+  "enwik8 test  bytes   5,000,000 expected   5,000,000 OK",
+  "enwik8 distinct byte values in first 10M train bytes: 200 (vocab 256)",
+  "recall L=512 random gap: 16 answers/sample, keys/values/distractors disjoint OK",
+  "recall L=512 max gap: 16 answers/sample, keys/values/distractors disjoint OK"
+ ],
+ "seconds": 1.2
+}
